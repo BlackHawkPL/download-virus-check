@@ -208,6 +208,12 @@ function perform (download) {
             });
           }
           else {
+            chrome.notifications.create({
+              type: 'basic',
+              iconUrl: './data/icons/48.png',
+              title: 'Download Virus Checker',
+              message: 'File clean\n' + obj.download.url.split('/').slice(-1)[0] + '\npositives: ' + obj.positives,
+            });
             logging('Link passed anti-virus check');
           }
           count -= 1;
